@@ -17,6 +17,16 @@ Laboratorio personal de ciberseguridad desarrollado con VirtualBox para aprender
 - Utilizar herramientas habituales en ciberseguridad.
 - Documentar el proceso de aprendizaje de forma estructurada
 
+ ## Alcance del proyecto
+ 
+Este laboratorio simula un entorno de pentesting básico en el que se realiza:
+
+- Reconocimiento de red
+- Enumeración de servicios expuestos
+- Análisis de protocolos inseguros
+- Acceso remoto a sistemas
+- Explotación controlada de vulnerabilidades conocidas
+
 ## Red
 
 - Plataforma: VirtualBox
@@ -34,55 +44,30 @@ Laboratorio personal de ciberseguridad desarrollado con VirtualBox para aprender
 - Metasploit Framework
 - VirtualBox
 
-## Prácticas realizadas
+## Resumen de prácticas
 
-### Reconocimiento de red
+Las prácticas realizadas incluyen:
 
-- Verificación de conectividad mediante ping.
-- Escaneo de puertos y servicios con Nmap.
-- Identificación de versiones vulnerables.
-
-### Análisis de protocolos
-
-- FTP
-  - Captura de credenciales en texto plano.
-  - Análisis de tráfico con Wireshark.
-
-- HTTP
-  - Inspección de solicitudes GET.
-  - Observación de tráfico sin cifrar.
-
-- SSH
-  - Acceso remoto seguro mediante cifrado.
-  - Compatibilidad con algoritmos legacy.
-
-### Enumeración SMB
-
-- Descubrimiento de recursos compartidos.
-- Acceso anónimo a shares expuestos.
-- Identificación de permisos y restricciones.
-
-### Explotación controlada
-
-- Identificación de vulnerabilidades mediante Metasploit.
-- Uso de módulos específicos para servicios vulnerables.
-- Obtención de acceso remoto en entorno de laboratorio.
+- Reconocimiento de red con Nmap
+- Análisis de tráfico FTP, HTTP y SMB
+- Enumeración de recursos compartidos
+- Acceso remoto mediante SSH
+- Explotación controlada con Metasploit
 
 ## Documentación
 
-La documentación detallada del laboratorio se encuentra en:
+La documentación técnica completa se encuentra en:
 
-- `docs/homelab.md`
+ `docs/homelab.md`
 
 ## Lecciones aprendidas
 
-- La enumeración es una de las fases más importantes de un análisis de seguridad.
-- No todos los servicios expuestos son necesariamente explotables.
-- Protocolos como FTP y HTTP transmiten información sin cifrar.
-- SSH proporciona confidencialidad e integridad en las comunicaciones.
-- Una mala configuración puede ser tan peligrosa como una vulnerabilidad software.
-- La documentación es una parte fundamental del trabajo técnico.
+- La enumeración es clave en cualquier test de intrusión
+- Servicios mal configurados pueden exponer información sensible
+- Protocolos sin cifrar (FTP, HTTP) son inseguros por diseño
+- SSH proporciona comunicación cifrada y segura
+- La documentación es parte fundamental del proceso técnico
 
 ## Aviso
 
-Este laboratorio se ha realizado exclusivamente con fines educativos sobre máquinas vulnerables diseñadas para entrenamiento en un entorno aislado y controlado.
+Este proyecto se ha realizado exclusivamente con fines educativos en un entorno controlado utilizando máquinas vulnerables diseñadas para prácticas de ciberseguridad.
