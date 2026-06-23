@@ -220,7 +220,7 @@ Interact with a module by name or index. For example info 1, use 1 or use exploi
 ### Módulo seleccionado
 exploit/unix/ftp/vsftpd_234_backdoor
 
-Ese ya que coincide con ña versión del servicio FTP detectado en Nmap (vsftpd 2.3.4)
+Ese ya que coincide con la versión del servicio FTP detectado en Nmap (vsftpd 2.3.4)
 
 ### Tipo de vulnerabilidad
 Backdoor que permite ejecucion remota de comandos
