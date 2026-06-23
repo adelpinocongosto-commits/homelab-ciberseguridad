@@ -1,16 +1,11 @@
 # Homelab
 
-## Objetivo del proyecto
+# Informe técnico - Homelab de Ciberseguridad
 
-Laboratorio de ciberseguridad montado en local con VirtualBox para practicar 
-técnicas de pentesting en un entorno controlado y legal.
+Este documento recoge el desarrollo técnico completo del laboratorio de ciberseguridad realizado en entorno VirtualBox con Kali Linux y Metasploitable 2.
 
-El entorno simula un escenario real de ataque: una máquina atacante (Kali Linux) 
-frente a una máquina víctima intencionalmente vulnerable (Metasploitable 2), 
-comunicadas a través de una red interna aislada de Internet.
+El objetivo es documentar de forma detallada las fases de un proceso básico de pentesting en un entorno controlado.
 
-El objetivo es aplicar de forma práctica las fases de un test de penetración: 
-reconocimiento, escaneo, enumeración, explotación y documentación.
 
 ## Máquinas Virtuales
 
@@ -240,12 +235,10 @@ Se obtuvo una sesión remota activa (Meterpreter) en el sistema objetivo.
 ### Evidencia
 Backdoor has been spawned
 Meterpreter session opened
+getuid -> Server username: root
 
 ### Impacto
 Acceso remoto al sistema víctima a través del servicio FTP vulnerable.
 
 ### Conclusión
 Una mala configuración/vulnerabilidad en un servicio expuesto puede derivar en control remoto completo del sistema.
-
-
-
