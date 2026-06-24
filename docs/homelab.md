@@ -253,7 +253,7 @@ Meterpreter session opened
 getuid -> Server username: root
 ```
 
-![Acceso root Meterpreter](../screenshots/metasploit_vsftpd.png)
+![Acceso root Meterpreter](../screenshots/metasploit_vsftpd_exploit.png)
 
 ### Impacto
 Acceso remoto al sistema víctima a través del servicio FTP vulnerable.
