@@ -1,5 +1,3 @@
-# Homelab
-
 # Informe técnico - Homelab de Ciberseguridad
 
 Este documento recoge el desarrollo técnico completo del laboratorio de ciberseguridad realizado en entorno VirtualBox con Kali Linux y Metasploitable 2.
@@ -66,15 +64,17 @@ Sistema extremadamente vulnerable, diseñado para laboratorio de ciberseguridad.
 ### Objetivo:
 Conectarse al servicio FTP en Metasploitable.
 
-### Comando:
+### Comando
+```bash
 ftp 192.168.50.10
+```
 
 ### Resultado esperado:
 Posible acceso como usuario anonymous (sin autenticación real).
 
 ### Observación:
 FTP transmite credenciales en texto plano (sin cifrado).
-Se finalizó con el comando quit
+Se finalizó con el comando ``` quit ```
 
 ------------------------------------------------------
 
@@ -116,7 +116,9 @@ Exposición de información en texto plano.
 Obtener acceso remoto al sistema víctima a través del servicio SSH.
 
 ### Comando utilizado
+```bash
 ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa msfadmin@192.168.50.10
+```
 
 ### Resultado
 Acceso exitoso al sistema Metasploitable como usuario `msfadmin`.
@@ -135,12 +137,12 @@ Acceso exitoso al sistema Metasploitable como usuario `msfadmin`.
 Se logró pasar de reconocimiento de red (Nmap) a acceso interactivo al sistema remoto mediante SSH, completando la fase de acceso inicial en un entorno de laboratorio controlado.
 
 ## Comandos utilizados
-- hostname -> metasploitable
-- whoami -> msfadmin
-- ip a -> IP accesible desde kali
-- ls -la -> permisos
-- uname -a -> ux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686 GNU/Linux
-- id -> uid=1000(msfadmin) gid=1000(msfadmin) groups=4(adm),20(dialout),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),107(fuse),111(lpadmin),112(admin),119(sambashare),1000(msfadmin)
+- ```hostname``` -> metasploitable
+- ```whoami``` -> msfadmin
+- ```ip a``` -> IP accesible desde kali
+- ```ls -la``` -> permisos
+- ```uname -a ```-> ux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686 GNU/Linux
+- ```id``` -> uid=1000(msfadmin) gid=1000(msfadmin) groups=4(adm),20(dialout),24(cdrom),25(floppy),29(audio),30(dip),44(video),46(plugdev),107(fuse),111(lpadmin),112(admin),119(sambashare),1000(msfadmin)
 
 --------------------------------------------------------
 
@@ -154,9 +156,11 @@ Identificar recursos compartidos expuestos por el servicio Samba mediante SMB
 - Puerto 445/TCP
 
 ## Comando
+```bash
 smbclient -L //192.168.50.10 -N
+```
 
-## Resultado y Conclusion
+## Resultado y Conclusión
 Anonymous login successful
 
         Sharename       Type      Comment
@@ -176,7 +180,7 @@ Anonymous login successful
         ---------            -------
         WORKGROUP            METASPLOITABLE
 
-- Conclusion: un usuario sin credenciales puede enumerar recursos compartidos, por tanto se identificó una configuracion insegura de SMB que permitió el reconocimiento sin autenticación.
+- Conclusión: un usuario sin credenciales puede enumerar recursos compartidos, por tanto se identificó una configuración insegura de SMB que permitió el reconocimiento sin autenticación.
 De hecho he probado conectarme a tmp como anónimo y el recurso me lo permitió, además con el comando "ls" se pudo observar los archivos sin ningún problema
 
 Para el caso de conectarse a /opt con "smbclient //192.168.50.10/opt -N", la autenticación fue permitida pero el acceso a ciertos recursos compartidos fue restringido con:  tree connect failed: NT_STATUS_ACCESS_DENIED
@@ -186,7 +190,7 @@ Para el caso de conectarse a /opt con "smbclient //192.168.50.10/opt -N", la aut
 ## Introducción a Metasploit
 
 ### Objetivo
-Iniciar el framework Metasploit para explorar vulnerabiliades conocidas en el sistema Metasploitable
+Iniciar el framework Metasploit para explorar vulnerabilidades conocidas en el sistema Metasploitable
 
 ### Comando
 msfconsole, desde Kali para abrir Metasploit
@@ -194,7 +198,9 @@ msfconsole, desde Kali para abrir Metasploit
 ## Búsqueda de vulnerabilidades en Metasploit
 
 ### Comando
+```bash
 search vsftpd
+```
 
 ### Resultado
 msf > search vsftpd
@@ -218,7 +224,7 @@ exploit/unix/ftp/vsftpd_234_backdoor
 Ese ya que coincide con la versión del servicio FTP detectado en Nmap (vsftpd 2.3.4)
 
 ### Tipo de vulnerabilidad
-Backdoor que permite ejecucion remota de comandos
+Backdoor que permite ejecución remota de comandos
 --------------------------------------------------------
 
 ## Explotación FTP (vsftpd 2.3.4)
@@ -233,9 +239,11 @@ exploit/unix/ftp/vsftpd_234_backdoor
 Se obtuvo una sesión remota activa (Meterpreter) en el sistema objetivo.
 
 ### Evidencia
+```text
 Backdoor has been spawned
 Meterpreter session opened
 getuid -> Server username: root
+```
 
 ### Impacto
 Acceso remoto al sistema víctima a través del servicio FTP vulnerable.
