@@ -35,7 +35,7 @@ Objetivo:
 ### Ping Kali -> Metasploitable
 Resultado = OK
 
-Comando: ping 192.168.50.10
+Comando: ``` ping 192.168.50.10 ```
 
 ------------------------------------------------------
 
@@ -106,6 +106,8 @@ http://192.168.50.10
 
 ### Observaciones:
 El tráfico HTTP no está cifrado.
+
+![Tráfico HTTP](../screenshots/http_get_request.png)
 
 Se pueden ver una solicitud GET desde Kali para cargar la página, y si pinchamos en los diferentes recursos habrá más solicitudes GET a las que el servidor responde
 
