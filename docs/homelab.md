@@ -45,6 +45,7 @@ Comando: ping 192.168.50.10
 192.168.50.10
 
 ### Servicios críticos encontrados:
+![Escaneo Nmap](../screenshots/nmap_scan.png)
 
 - 21 FTP (vsftpd 2.3.4)
 - 23 Telnet (sin cifrado)
@@ -91,6 +92,7 @@ Se reinició la captura antes de iniciar sesión FTP y se aplicó filtro tcp.por
 
 ### Resultado:
 Se observan comandos USER y PASS en texto plano.
+![Captura FTP Wireshark](../screenshots/ftp_wireshark.png)
 FTP transmite credenciales sin cifrar, lo cual permite interceptación en redes sin protección
 
 ------------------------------------------------------
@@ -183,6 +185,8 @@ Anonymous login successful
 - Conclusión: un usuario sin credenciales puede enumerar recursos compartidos, por tanto se identificó una configuración insegura de SMB que permitió el reconocimiento sin autenticación.
 De hecho he probado conectarme a tmp como anónimo y el recurso me lo permitió, además con el comando "ls" se pudo observar los archivos sin ningún problema
 
+![Enumeración Samba](../screenshots/smb_enum.png)
+
 Para el caso de conectarse a /opt con "smbclient //192.168.50.10/opt -N", la autenticación fue permitida pero el acceso a ciertos recursos compartidos fue restringido con:  tree connect failed: NT_STATUS_ACCESS_DENIED
 
 --------------------------------------------------------
@@ -244,6 +248,8 @@ Backdoor has been spawned
 Meterpreter session opened
 getuid -> Server username: root
 ```
+
+![Acceso root Meterpreter](../screenshots/metasploit_vsftpd.png)
 
 ### Impacto
 Acceso remoto al sistema víctima a través del servicio FTP vulnerable.
