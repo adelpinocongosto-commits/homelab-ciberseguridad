@@ -92,7 +92,9 @@ Se reinició la captura antes de iniciar sesión FTP y se aplicó filtro tcp.por
 
 ### Resultado:
 Se observan comandos USER y PASS en texto plano.
+
 ![Captura FTP Wireshark](../screenshots/ftp_wireshark.png)
+
 FTP transmite credenciales sin cifrar, lo cual permite interceptación en redes sin protección
 
 ------------------------------------------------------
